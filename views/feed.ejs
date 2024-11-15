@@ -3,7 +3,7 @@
     
     <div class="card flex flex-wrap gap-10 ">
         <% posts.forEach(function(elm){%>
-            <a href="/feed" class="block"> 
+            <a href="/post/<%= elm._id%>" class="block"> 
         <div class="card w-32">
             <div class="w-full h-40 bg-zinc-700 rounded-lg overflow-hidden ">
                 <img class="w-full h-full object-cover" src="/images/uploads/<%= elm.image %>" alt="">

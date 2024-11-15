@@ -19,7 +19,7 @@ router.get("/register", function (req, res, next) {
 });
 router.get("/profile", isLoggedIn, async function (req, res, next) {
   const user = await userModel.findOne({ username: req.session.passport.user }).populate("posts");
-  console.log(user);
+  // console.log(user);
 
   res.render("profile", { user, nav: true });
 });
@@ -105,14 +105,19 @@ function isLoggedIn(req, res, next) {
 
 router.get("/post/:id", isLoggedIn, async function (req, res, next) {
   try {
-    const post = await postModel.findById(req.params.id).populate('user');  // Fetch the post by ID
+    const post = await postModel.findById(req.params.id).populate('user'); 
+  // const result=   post.posts.findOne(req.param.Id).populate('post')
+    // Fetch the post by ID
+    console.log(post.title)
+    console.log(post.description)
     if (!post) {
       return res.status(404).send('Post not found');
     }
-    res.render("description", { post, nav: true });  // Render the post description page
-    // res.render("descriptions", { user, nav: true });
+  //   res.render("description", { post, nav: true });  // Render the post description page
+    res.render("description", { post, nav: true });
 
-  } catch (err) {
+  } 
+  catch (err) {
     console.error(err);
     res.status(500).send('Working on this section...');
   }
