@@ -1,0 +1,28 @@
+<% include ./partials/Header.ejs %>
+
+<div class="w-full min-h-screen bg-zinc-800 px-10 py-8 text-white">
+    <!-- Car Name -->
+    <div class="text-center mb-4">
+        <h1 class="text-3xl font-semibold"><%= post.title %></h1>
+    </div>
+    
+    <!-- Car Image -->
+    <div class="mb-6">
+        <img class="w-full h-96 object-cover rounded-lg" src="/images/uploads/<%= post.image %>" alt="<%= post.title %>">
+    </div>
+
+    <!-- Car Description -->
+    <div class="mb-6">
+        <p class="text-lg">
+            <%= post.description %>
+        </p>
+    </div>
+
+    <!-- Author Info (Optional) -->
+    <!-- <div class="mt-6 text-sm text-gray-400">
+        <p>Posted by: <%= post.user.nameuser %></p>
+        <p>Posted on: <%= post.createdAt.toLocaleDateString() %></p>
+    </div> -->
+</div>
+
+<% include ./partials/footer.ejs %>
