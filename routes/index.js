@@ -110,9 +110,11 @@ router.get("/post/:id", isLoggedIn, async function (req, res, next) {
       return res.status(404).send('Post not found');
     }
     res.render("description", { post, nav: true });  // Render the post description page
+    // res.render("descriptions", { user, nav: true });
+
   } catch (err) {
     console.error(err);
-    res.status(500).send('Server error');
+    res.status(500).send('Working on this section...');
   }
 });
 // router.get("/login/success", (req, res) => {

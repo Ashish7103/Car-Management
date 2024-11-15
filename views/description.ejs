@@ -1,28 +1,18 @@
 <% include ./partials/Header.ejs %>
 
 <div class="w-full min-h-screen bg-zinc-800 px-10 py-8 text-white">
-    <!-- Car Name -->
-    <div class="text-center mb-4">
-        <h1 class="text-3xl font-semibold"><%= post.title %></h1>
-    </div>
+    <div class="card flex flex-wrap gap-10 ">
+        <% posts.forEach(function(elm){%>
+        <div class="card w-32">
+            <div class="w-full h-40 bg-zinc-700 rounded-lg overflow-hidden ">
+                <img class="w-full h-full object-cover" src="/images/uploads/<%= elm.image %>" alt="">
+            </div>
+            <h5 class="mt-2 text-sm"> <%= elm.title %></h5>
+            <h6 class="mt-2 text-xs opacity-10 "> @<%= elm.user.username %></h6>
+        </div>
+        <% }); %>
     
-    <!-- Car Image -->
-    <div class="mb-6">
-        <img class="w-full h-96 object-cover rounded-lg" src="/images/uploads/<%= post.image %>" alt="<%= post.title %>">
     </div>
-
-    <!-- Car Description -->
-    <div class="mb-6">
-        <p class="text-lg">
-            <%= post.description %>
-        </p>
-    </div>
-
-    <!-- Author Info (Optional) -->
-    <!-- <div class="mt-6 text-sm text-gray-400">
-        <p>Posted by: <%= post.user.nameuser %></p>
-        <p>Posted on: <%= post.createdAt.toLocaleDateString() %></p>
-    </div> -->
 </div>
 
 <% include ./partials/footer.ejs %>
